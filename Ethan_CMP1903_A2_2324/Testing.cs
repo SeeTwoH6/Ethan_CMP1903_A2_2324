@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ethan_CMP1903_A2_2324
 {
-    internal class Program
+    internal class Testing
     {
-        static void Main(string[] args)
-        {
-        }
     }
 }
