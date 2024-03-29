@@ -10,6 +10,11 @@ namespace Ethan_CMP1903_A2_2324
     {
         static void Main(string[] args)
         {
+            SevensOut sevensGame = new SevensOut();
+            Console.WriteLine($"The total of the game before it starts is {sevensGame.ReturnTotal()}");
+            sevensGame.StartGame();
+            Console.WriteLine($"The total of the game after it finished is {sevensGame.ReturnTotal()}");
+            Console.ReadLine();
         }
     }
 }
