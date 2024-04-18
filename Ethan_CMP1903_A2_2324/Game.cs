@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,13 +44,9 @@ namespace Ethan_CMP1903_A2_2324
             //Sevens Out game was selected
             if (choice == 1)
             {
-                SevensOut player1 = new SevensOut();
-                player1.StartGame();
-                Console.WriteLine($"Player 1 got a score of {player1.ReturnTotal()}");
-
-                SevensOut player2 = new SevensOut();
-                player2.StartGame();
-                Console.WriteLine($"Player 2 got a score of {player2.ReturnTotal()}");
+                SevensOut sevensGame = new SevensOut();
+                sevensGame.CreateDice(1, 2);
+                sevensGame.StartGame();
             }
             //Three or More game was selected
             else if(choice == 2)

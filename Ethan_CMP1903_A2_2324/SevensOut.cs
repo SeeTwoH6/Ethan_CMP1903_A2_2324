@@ -7,42 +7,36 @@ using System.Threading.Tasks;
 
 namespace Ethan_CMP1903_A2_2324
 {
-    internal class SevensOut
+    internal class SevensOut : DiceGames
     {
-        Die dice1 = new Die();
-        Die dice2 = new Die();
-
-        int total = 0;
-        int sum = 0;
+        private int total = 0;
         public void StartGame()
         {
-            while(sum != 7)
+            DiceGames gameSetup = new DiceGames();
+            gameSetup.score = 1;
+            while (total != 7)
             {
-                dice1.RollDice();
-                dice2.RollDice();
-                sum = dice1.Roll + dice2.Roll;
-                Console.WriteLine($"The first dice rolled a {dice1.Roll}");
-                Console.WriteLine($"The second dice rolled a {dice2.Roll}");
-                if (sum == 7)
+                foreach(Die die in DieList)
+                {
+                    int turnRoll = die.RollDice();
+                    Console.WriteLine($"You rolled a {turnRoll.Roll}");
+                    total += turnRoll;   
+                }
+                if (total == 7)
                 {
                     Console.WriteLine("You rolled a 7! Game Over!");
                     break;
                 }
                 else if (dice1.Roll == dice2.Roll)
                 {
-                    total += sum * 2;
+                    gameSetup.score += total * 2;
                 }
                 else
                 {
-                    total += sum;
+                    gameSetup.score += total;
                 }
-                Console.WriteLine($"The current total is {total}");
+                Console.WriteLine($"The current total is {gameSetup.ReturnScore()}");
             }
-        }
-
-        public int ReturnTotal()
-        {
-            return total;
         }
     }
 }
