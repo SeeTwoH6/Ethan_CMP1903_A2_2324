@@ -29,7 +29,7 @@ namespace Ethan_CMP1903_A2_2324
             {
                 Die die = new Die();
                 DieList.Add(die);
-                Console.WriteLine($"Added {diceRequired} dice to die list");
+                Console.WriteLine($"Added a die to die list");
             }
             Console.WriteLine("End of method");
         }

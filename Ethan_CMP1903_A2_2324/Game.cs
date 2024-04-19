@@ -30,7 +30,7 @@ namespace Ethan_CMP1903_A2_2324
             int opponent = 0;
             while (opponent < 1 || opponent > 2)
             {
-                Console.WriteLine("Play against:\n1)A Player?\n2)An AI?");
+                Console.WriteLine("Play against:\n1)An AI?\n2)A Player?");
                 try
                 {
                     opponent = Int32.Parse(Console.ReadLine());
@@ -45,8 +45,12 @@ namespace Ethan_CMP1903_A2_2324
             if (choice == 1)
             {
                 SevensOut sevensGame = new SevensOut();
-                sevensGame.CreateDice(1, 2);
-                sevensGame.StartGame();
+                sevensGame.CreateDice(opponent, 2);
+                for(int i = 1; i <= opponent; i++)
+                {
+                    Console.WriteLine($"Player {i}");
+                    sevensGame.StartGame();
+                }
             }
             //Three or More game was selected
             else if(choice == 2)
