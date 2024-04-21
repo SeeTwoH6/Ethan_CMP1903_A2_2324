@@ -12,14 +12,15 @@ namespace Ethan_CMP1903_A2_2324
         public void StartGame()
         {
             int total = 0;
-            DiceGames gameSetup = new DiceGames();
+            score = 0;
+            turns = 0;
             var firstDice = DieList.First();
             var secondDice = DieList.Last();
-            gameSetup.gamesPlayed++;
+            gamesPlayed++;
             while (total != 7)
             {
                 total = 0;
-                gameSetup.turns++;
+                turns++;
                 foreach(Die die in DieList)
                 {
                     int turnRoll = die.RollDice();
@@ -33,15 +34,15 @@ namespace Ethan_CMP1903_A2_2324
                 }
                 else if (firstDice.Roll == secondDice.Roll)
                 {
-                    gameSetup.score += total * 2;
+                    score += total * 2;
                 }
                 else
                 {
-                    gameSetup.score += total;
+                    score += total;
                 }
-                Console.WriteLine($"Your current score is {gameSetup.ReturnScore()}");
+                Console.WriteLine($"Your current score is {ReturnScore()}");
             }
-            Console.WriteLine($"Your final score is {gameSetup.ReturnScore()}");
+            Console.WriteLine($"Your final score is {ReturnScore()}");
         }
     }
 }

@@ -11,6 +11,7 @@ namespace Ethan_CMP1903_A2_2324
     {
         static void Main(string[] args)
         {
+            Statistics stats = new Statistics();
             //Inputs needed for option select
             int choice = 0;
             while (choice < 1 || choice > 4)
@@ -44,12 +45,28 @@ namespace Ethan_CMP1903_A2_2324
             //Sevens Out game was selected
             if (choice == 1)
             {
-                SevensOut sevensGame = new SevensOut();
-                sevensGame.CreateDice(opponent, 2);
-                for(int i = 1; i <= opponent; i++)
+                int hiScore = 0;
+                int winner = 0;
+                for (int i = 1; i <= opponent; i++)
                 {
-                    Console.WriteLine($"Player {i}");
-                    sevensGame.StartGame();
+                    Console.WriteLine($"Player {i}:");
+                    SevensOut player = new SevensOut();
+                    player.CreateDice(2);
+                    player.StartGame();
+                    if (player.ReturnScore() > hiScore)
+                    {
+                        hiScore = player.ReturnScore();
+                        winner = i;
+                    }
+                    stats.High7Score(player.ReturnScore());
+                }
+                if (winner > 0) //There is a definite winner
+                {
+                    Console.WriteLine($"Winner is player {winner} with a score of {hiScore}");
+                }
+                else if (winner == 0)
+                {
+                    Console.WriteLine($"Tied game of {hiScore}");
                 }
             }
             //Three or More game was selected

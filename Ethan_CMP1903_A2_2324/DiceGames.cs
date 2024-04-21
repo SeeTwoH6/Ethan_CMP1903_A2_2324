@@ -23,7 +23,7 @@ namespace Ethan_CMP1903_A2_2324
         }
 
 
-        public void CreateDice(int players,int diceRequired)
+        public void CreateDice(int diceRequired)
         {
             for (int i = 0; i < diceRequired; i++)
             {
@@ -37,6 +37,10 @@ namespace Ethan_CMP1903_A2_2324
         public int ReturnScore()
         {
             return score;
+        }
+        public int ReturnGamesPlayed()
+        {
+            return gamesPlayed;
         }
     }
 }

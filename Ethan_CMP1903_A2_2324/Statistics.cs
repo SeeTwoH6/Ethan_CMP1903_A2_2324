@@ -8,12 +8,23 @@ namespace Ethan_CMP1903_A2_2324
 {
     internal class Statistics
     {
-        public void HighScore(int score, int prevMax)
+        public int high7Score { get; set; }
+
+        public Statistics() 
         {
-            if (score > prevMax)
+            high7Score = 0;
+        }
+        public int ReturnHigh7Score()
+        {
+            return high7Score;
+        }
+        public void High7Score(int score)
+        {
+            if (score > high7Score)
             {
-                prevMax = score;
+                high7Score = score;
             }
+            Console.WriteLine($"Record high score is {high7Score}");
         }
     }
 }
