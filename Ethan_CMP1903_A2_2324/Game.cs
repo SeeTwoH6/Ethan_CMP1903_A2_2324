@@ -72,8 +72,10 @@ namespace Ethan_CMP1903_A2_2324
             //Three or More game was selected
             else if(choice == 2)
             {
-                ThreeOrMore player1 = new ThreeOrMore();
-                player1.StartGame();
+                Console.WriteLine("Player 1");
+                ThreeOrMore player = new ThreeOrMore();
+                player.CreateDice(5);
+                player.StartGame();
             }
             Console.ReadLine();
         }

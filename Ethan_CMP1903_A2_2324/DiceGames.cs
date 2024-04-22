@@ -23,7 +23,7 @@ namespace Ethan_CMP1903_A2_2324
         }
 
 
-        public void CreateDice(int diceRequired)
+        public virtual void CreateDice(int diceRequired)
         {
             for (int i = 0; i < diceRequired; i++)
             {
