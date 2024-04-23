@@ -51,7 +51,6 @@ namespace Ethan_CMP1903_A2_2324
                 {
                     Console.WriteLine($"Player {i}:");
                     SevensOut player = new SevensOut();
-                    player.CreateDice(2);
                     player.StartGame();
                     if (player.ReturnScore() > hiScore)
                     {
@@ -70,12 +69,10 @@ namespace Ethan_CMP1903_A2_2324
                 }
             }
             //Three or More game was selected
-            else if(choice == 2)
+            else if (choice == 2)
             {
-                Console.WriteLine("Player 1");
                 ThreeOrMore player = new ThreeOrMore();
-                player.CreateDice(5);
-                player.StartGame();
+                player.StartGame(2);
             }
             Console.ReadLine();
         }
