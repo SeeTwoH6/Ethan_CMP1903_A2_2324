@@ -16,17 +16,6 @@ namespace Ethan_CMP1903_A2_2324
             score = 0;
             turns = 0;
         }
-        public override void CreateDice(int diceRequired, List<Die> list)
-        {
-            for (int i = 0; i < diceRequired; i++)
-            {
-                Die die = new Die();
-                die.RollDice();
-                list.Add(die);
-                Console.WriteLine($"You rolled a {die.Roll}");
-            }
-            Console.WriteLine("End of method");
-        }
         public void StartGame(int players)
         {
             //Game setup
@@ -51,8 +40,9 @@ namespace Ethan_CMP1903_A2_2324
             }
 
             //Game
-            while (playerScore < 20 || oppScore < 20)
+            while (playerScore < 20 && oppScore < 20)
             {
+                //Calculcate which player is playing
                 if (players == 1)
                 {
                     playerID = 0;
@@ -63,6 +53,7 @@ namespace Ethan_CMP1903_A2_2324
                 }
                 turns++;
 
+                //Select correct dice list depending on player
                 if (playerID == 0)
                 {
                     dieList = playerDice;
@@ -72,22 +63,22 @@ namespace Ethan_CMP1903_A2_2324
                     dieList = oppDice;
                 }
 
+                Console.WriteLine($"Turn: Player {playerID+1}");
+                Reroll(dieList);
                 for (int i = 6; i >= 1; i--) //1-6 represents each possibility of dice rolls, starting of 6 because we're hoping to catch the highest duplicates first
                 {
-                    List<int> listOfIndices = new List<int>();
+                    List<int> repeated = new List<int>();
                     int count = 0;
-                    int index = 0;
                     foreach (Die die in dieList) //Iterating through each dice in the list
                     {
                         if (i == die.Roll) //If the current dice number (i) is the same as the currently inspected die in list (die.Roll)
                         {
                             count++;
-                            if (listOfIndices.Count < 2)
+                            if (repeated.Count < 1 && count >= 1) //Stores a singular repeated value
                             {
-                                listOfIndices.Add(index);
+                                repeated.Add(i);
                             }
                         }
-                        index++;
                     }
 
                     int choice = 0;
@@ -110,43 +101,55 @@ namespace Ethan_CMP1903_A2_2324
                     if (choice == 1)
                     {
                         //Reroll the rest of the dice
-                        index = 0;
+                        int skipReroll = 0;
                         foreach (Die die in dieList) //Go through each dice in the list again
                         {
-                            if (index != listOfIndices.First() || index != listOfIndices.Last()) //If the current index is not any of the two items in the list (items in the list are the 2 of a kind)
+                            //I need to count how many times a reroll doesnt happen
+                            if (die.Roll != repeated.First() || skipReroll > 1) //If the current index is not any of the two items in the list (items in the list are the 2 of a kind)
                             {
+                                Console.WriteLine($"Rerolling the dice that was {die.Roll}");
                                 die.RollDice();
                             }
-                            index++;
+                            else
+                            {
+                                skipReroll++;
+                            }
                         }
+                        break;
                     }
 
                     else if (choice == 2)
                     {
                         //Reroll all dice
-                        foreach (Die die in dieList)
-                        {
-                            die.RollDice();
-                        }
+                        Reroll(dieList);
+                        break;
                     }
 
                     else if (choice == 3)//Point calculation
                     {
-                        foreach (Die die in dieList)
-                        {
-                            if (playerID == 0)
-                            {
-                                playerScore += die.Roll;
-                            }
-                            else if (playerID == 1)
-                            {
-                                oppScore += die.Roll;
-                            }
-                        }
+                        break;
                     }
-
                 }
+
+                //Calculating score
+                Console.WriteLine($"Points are about to be calculated...");
+                foreach (Die die in dieList)
+                {
+                    Console.WriteLine($"You rolled a {die.Roll}");
+                    if (playerID == 0)
+                    {
+                        playerScore += die.Roll;
+                    }
+                    else if (playerID == 1)
+                    {
+                        oppScore += die.Roll;
+                    }
+                }
+                Console.WriteLine($"playerScore: {playerScore}");
+                Console.WriteLine($"oppScore: {oppScore}");
             }
+
+            Console.WriteLine("Game Over!");
         }
     }
 }
