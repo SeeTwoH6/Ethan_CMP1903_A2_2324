@@ -169,12 +169,12 @@ namespace Ethan_CMP1903_A2_2324
                     }
                     else if (count == 4)
                     {
-                        points += 4;
+                        points += 6;
                         Console.WriteLine("\nYou rolled 4 of a kind!");
                     }
                     else if (count == 5)
                     {
-                        points += 5;
+                        points += 12;
                         Console.WriteLine("\nYou rolled 5 of a kind!");
                     }
 
