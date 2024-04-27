@@ -72,7 +72,7 @@ namespace Ethan_CMP1903_A2_2324
             else if (choice == 2)
             {
                 ThreeOrMore player = new ThreeOrMore();
-                player.StartGame(2);
+                player.StartGame(opponent);
             }
             Console.ReadLine();
         }

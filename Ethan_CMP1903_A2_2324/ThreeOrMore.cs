@@ -63,9 +63,9 @@ namespace Ethan_CMP1903_A2_2324
                     dieList = oppDice;
                 }
 
-                Console.WriteLine($"Turn: Player {playerID+1}");
+                Console.WriteLine($"Turn: Player {playerID+1}\n");
                 Reroll(dieList);
-                for (int i = 6; i >= 1; i--) //1-6 represents each possibility of dice rolls, starting of 6 because we're hoping to catch the highest duplicates first
+                for (int i = 1; i <= 6; i++) //1-6 represents each possibility of dice rolls
                 {
                     List<int> repeated = new List<int>();
                     int count = 0;
@@ -86,7 +86,7 @@ namespace Ethan_CMP1903_A2_2324
                     {
                         while (choice < 1 || choice > 3)
                         {
-                            Console.WriteLine($"You rolled at least two {i}'s\nDo you want to:\n1) Reroll the rest of your dice?\n2) Reroll all of your dice\n3)Proceed with point calculation");
+                            Console.WriteLine($"\nYou rolled at least two {i}'s\nDo you want to:\n1) Reroll the rest of your dice?\n2) Reroll all of your dice\n3)Proceed with point calculation");
                             try
                             {
                                 choice = Int32.Parse(Console.ReadLine());
@@ -107,7 +107,6 @@ namespace Ethan_CMP1903_A2_2324
                             //I need to count how many times a reroll doesnt happen
                             if (die.Roll != repeated.First() || skipReroll > 1) //If the current index is not any of the two items in the list (items in the list are the 2 of a kind)
                             {
-                                Console.WriteLine($"Rerolling the dice that was {die.Roll}");
                                 die.RollDice();
                             }
                             else
@@ -132,21 +131,50 @@ namespace Ethan_CMP1903_A2_2324
                 }
 
                 //Calculating score
-                Console.WriteLine($"Points are about to be calculated...");
+                Console.WriteLine("\nPoints are about to be calculated...");
                 foreach (Die die in dieList)
                 {
                     Console.WriteLine($"You rolled a {die.Roll}");
+                }
+                for (int i = 1; i <= 6; i++)
+                {
+                    int count = 0;
+                    int points = 0;
+                    foreach (Die die in dieList)
+                    {
+                        if (die.Roll == i)
+                        {
+                            count++;
+                        }
+                    }
+
+                    if (count == 3)
+                    {
+                        points += 3;
+                        Console.WriteLine("\nYou rolled 3 of a kind!");
+                    }
+                    else if (count == 4)
+                    {
+                        points += 4;
+                        Console.WriteLine("\nYou rolled 4 of a kind!");
+                    }
+                    else if (count == 5)
+                    {
+                        points += 5;
+                        Console.WriteLine("\nYou rolled 5 of a kind!");
+                    }
+
                     if (playerID == 0)
                     {
-                        playerScore += die.Roll;
+                        playerScore += points;
                     }
                     else if (playerID == 1)
                     {
-                        oppScore += die.Roll;
+                        oppScore += points;
                     }
                 }
-                Console.WriteLine($"playerScore: {playerScore}");
-                Console.WriteLine($"oppScore: {oppScore}");
+                Console.WriteLine($"\nPlayer 1 Score: {playerScore}");
+                Console.WriteLine($"Player 2 Score: {oppScore}\n");
             }
 
             Console.WriteLine("Game Over!");

@@ -19,9 +19,8 @@ namespace Ethan_CMP1903_A2_2324
             {
                 Die die = new Die();
                 list.Add(die);
-                Console.WriteLine($"Added a die to die list");
             }
-            Console.WriteLine("End of method");
+            Console.WriteLine($"Starting game with {diceRequired} die\n");
         }
 
         public void Reroll(List<Die> list)
