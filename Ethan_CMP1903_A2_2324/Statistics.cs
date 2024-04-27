@@ -15,7 +15,8 @@ namespace Ethan_CMP1903_A2_2324
             games3Played = 0;
             turns7 = 0;
             turns3 = 0;
-            wins = 0;
+            wins1 = 0;
+            wins2 = 0;
         }
 
         //High Score
@@ -79,15 +80,26 @@ namespace Ethan_CMP1903_A2_2324
             return turns3;
         }
 
-        //Wins
-        private int wins { get; set; }
-        public void UpdateWins(int win)
+        //Wins - P1
+        private int wins1 { get; set; }
+        public void Update1Wins(int wins)
         {
-            wins += win;
+            wins1 += wins;
         }
-        public int ReturnWins()
+        public int Return1Wins()
         {
-            return wins;
+            return wins1;
+        }
+
+        //Wins - P2
+        private int wins2 { get; set; }
+        public void Update2Wins(int wins)
+        {
+            wins2 += wins;
+        }
+        public int Return2Wins()
+        {
+            return wins2;
         }
 
         public int ReturnGamesPlayed()
