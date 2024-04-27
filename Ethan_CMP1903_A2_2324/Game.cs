@@ -45,28 +45,6 @@ namespace Ethan_CMP1903_A2_2324
             //Sevens Out game was selected
             if (choice == 1)
             {
-                int hiScore = 0;
-                int winner = 0;
-                for (int i = 1; i <= opponent; i++)
-                {
-                    Console.WriteLine($"Player {i}:");
-                    SevensOut player = new SevensOut();
-                    player.StartGame();
-                    if (player.ReturnScore() > hiScore)
-                    {
-                        hiScore = player.ReturnScore();
-                        winner = i;
-                    }
-                    stats.High7Score(player.ReturnScore());
-                }
-                if (winner > 0) //There is a definite winner
-                {
-                    Console.WriteLine($"Winner is player {winner} with a score of {hiScore}");
-                }
-                else if (winner == 0)
-                {
-                    Console.WriteLine($"Tied game of {hiScore}");
-                }
             }
             //Three or More game was selected
             else if (choice == 2)

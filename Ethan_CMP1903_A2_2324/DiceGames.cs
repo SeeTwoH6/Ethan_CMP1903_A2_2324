@@ -9,11 +9,13 @@ namespace Ethan_CMP1903_A2_2324
 {
     internal class DiceGames
     {
-        public int score { get; set; }
+        public int playerScore { get; set; }
+        public int oppScore { get; set; }
         public int turns { get; set; }
         public int gamesPlayed { get; set; }
+        public int playerID { get; set; }
 
-        public virtual void CreateDice(int diceRequired, List<Die> list)
+        public void CreateDice(int diceRequired, List<Die> list)
         {
             for (int i = 0; i < diceRequired; i++)
             {
@@ -23,7 +25,7 @@ namespace Ethan_CMP1903_A2_2324
             Console.WriteLine($"Starting game with {diceRequired} die\n");
         }
 
-        public void Reroll(List<Die> list)
+        public virtual void Reroll(List<Die> list)
         {
             foreach (Die die in list)
             {
@@ -32,10 +34,6 @@ namespace Ethan_CMP1903_A2_2324
             }
         }
 
-        public int ReturnScore()
-        {
-            return score;
-        }
         public int ReturnGamesPlayed()
         {
             return gamesPlayed;
