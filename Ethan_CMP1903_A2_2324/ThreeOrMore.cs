@@ -14,10 +14,6 @@ namespace Ethan_CMP1903_A2_2324
         public ThreeOrMore() 
         {
             gamesPlayed = 0;
-            playerScore = 0;
-            oppScore = 0;
-            turns = 0;
-            playerID = 0;
         }
 
         public void Reroll(List<Die> list, int repeatValue)
@@ -42,6 +38,10 @@ namespace Ethan_CMP1903_A2_2324
         {
             //Game setup
             gamesPlayed++;
+            playerScore = 0;
+            oppScore = 0;
+            turns = 0;
+            playerID = 0;
             List<Die> playerDice = new List<Die>();
             List<Die> oppDice = new List<Die>();
             List<Die> dieList = new List<Die>();
@@ -195,10 +195,12 @@ namespace Ethan_CMP1903_A2_2324
             if (playerScore > oppScore)
             {
                 Console.WriteLine("Player 1 won!");
+                p1Wins++;
             }
             else
             {
                 Console.WriteLine("Player 2 won!");
+                oppWins++;
             }
         }
     }

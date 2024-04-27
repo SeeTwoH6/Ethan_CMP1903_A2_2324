@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,6 +12,8 @@ namespace Ethan_CMP1903_A2_2324
     {
         public int playerScore { get; set; }
         public int oppScore { get; set; }
+        public int p1Wins { get; set; }
+        public int oppWins { get; set; }
         public int turns { get; set; }
         public int gamesPlayed { get; set; }
         public int playerID { get; set; }
@@ -22,7 +25,6 @@ namespace Ethan_CMP1903_A2_2324
                 Die die = new Die();
                 list.Add(die);
             }
-            Console.WriteLine($"Starting game with {diceRequired} die\n");
         }
 
         public virtual void Reroll(List<Die> list)
@@ -34,6 +36,18 @@ namespace Ethan_CMP1903_A2_2324
             }
         }
 
+        public int ReturnPlayerScore()
+        {
+            return playerScore;
+        }
+        public int ReturnOppScore() 
+        {
+            return oppScore;
+        }
+        public int ReturnTurns()
+        {
+            return turns;
+        }
         public int ReturnGamesPlayed()
         {
             return gamesPlayed;
