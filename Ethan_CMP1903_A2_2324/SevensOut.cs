@@ -9,15 +9,9 @@ namespace Ethan_CMP1903_A2_2324
 {
     internal class SevensOut : DiceGames
     {
-        public SevensOut()
-        {
-            gamesPlayed = 0;
-        }
-
         public void StartGame(int players)
         {
             //Game setup
-            gamesPlayed++;
             playerScore = 0;
             oppScore = 0;
             List<Die> gameDice = new List<Die>();

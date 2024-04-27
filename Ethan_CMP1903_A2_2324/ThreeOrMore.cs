@@ -11,11 +11,6 @@ namespace Ethan_CMP1903_A2_2324
 {
     internal class ThreeOrMore : DiceGames
     {
-        public ThreeOrMore() 
-        {
-            gamesPlayed = 0;
-        }
-
         public void Reroll(List<Die> list, int repeatValue)
         {
             int skipReroll = 0; //Used to count how many times a reroll doesnt happen
@@ -37,7 +32,6 @@ namespace Ethan_CMP1903_A2_2324
         public void StartGame(int players)
         {
             //Game setup
-            gamesPlayed++;
             playerScore = 0;
             oppScore = 0;
             turns = 0;

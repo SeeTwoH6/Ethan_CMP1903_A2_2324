@@ -54,7 +54,7 @@ namespace Ethan_CMP1903_A2_2324
                 if (choice == 1)
                 {
                     sevens.StartGame(opponent);
-                    stats.Games7Played(sevens.gamesPlayed);
+                    stats.Games7Played(1);
                     stats.HighScore(sevens.playerScore);
                     stats.HighScore(sevens.oppScore);
                     stats.Update7Turns(sevens.turns);
@@ -65,7 +65,7 @@ namespace Ethan_CMP1903_A2_2324
                 else if (choice == 2)
                 {
                     threeOrMore.StartGame(opponent);
-                    stats.Games3Played(threeOrMore.gamesPlayed);
+                    stats.Games3Played(1);
                     stats.Update3Turns(threeOrMore.turns);
                     stats.Update1Wins(threeOrMore.p1Wins);
                     stats.Update2Wins(threeOrMore.oppWins);

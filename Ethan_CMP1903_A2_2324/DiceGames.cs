@@ -15,7 +15,6 @@ namespace Ethan_CMP1903_A2_2324
         public int p1Wins { get; set; }
         public int oppWins { get; set; }
         public int turns { get; set; }
-        public int gamesPlayed { get; set; }
         public int playerID { get; set; }
 
         public void CreateDice(int diceRequired, List<Die> list)
@@ -34,23 +33,6 @@ namespace Ethan_CMP1903_A2_2324
                 die.RollDice();
                 Console.WriteLine($"You rolled a {die.Roll}");
             }
-        }
-
-        public int ReturnPlayerScore()
-        {
-            return playerScore;
-        }
-        public int ReturnOppScore() 
-        {
-            return oppScore;
-        }
-        public int ReturnTurns()
-        {
-            return turns;
-        }
-        public int ReturnGamesPlayed()
-        {
-            return gamesPlayed;
         }
     }
 }
