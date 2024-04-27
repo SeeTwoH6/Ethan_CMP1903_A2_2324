@@ -17,6 +17,11 @@ namespace Ethan_CMP1903_A2_2324
         public int turns { get; set; }
         public int playerID { get; set; }
 
+        /// <summary>
+        /// Creates diceRequired Die objects and adds them to a list
+        /// </summary>
+        /// <param name="diceRequired"></param>
+        /// <param name="list"></param>
         public void CreateDice(int diceRequired, List<Die> list)
         {
             for (int i = 0; i < diceRequired; i++)
@@ -26,6 +31,10 @@ namespace Ethan_CMP1903_A2_2324
             }
         }
 
+        /// <summary>
+        /// Rerolls each die in the passed in dice list
+        /// </summary>
+        /// <param name="list"></param>
         public virtual void Reroll(List<Die> list)
         {
             foreach (Die die in list)

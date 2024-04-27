@@ -8,5 +8,10 @@ namespace Ethan_CMP1903_A2_2324
 {
     internal class Testing
     {
+        Game testGame = new Game();
+        public void Check()
+        {
+            testGame.ReturnHighScore();
+        }
     }
 }
