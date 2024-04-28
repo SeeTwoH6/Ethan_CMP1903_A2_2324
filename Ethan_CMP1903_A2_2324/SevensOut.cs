@@ -9,6 +9,28 @@ namespace Ethan_CMP1903_A2_2324
 {
     internal class SevensOut : DiceGames
     {
+        public bool TestRoll()
+        {
+            int sum = 0;
+            List<Die> testDice = new List<Die>
+            {
+                new Die(),
+                new Die()
+            };
+            while (sum != 7)
+            {
+                Console.WriteLine("Testing next dice roll turn...");
+                sum = 0;
+                foreach (Die die in testDice)
+                {
+                    int turnRoll = die.RollDice();
+                    Console.WriteLine($"Test dice rolled a {die.Roll}");
+                    sum += turnRoll;
+                }
+            }
+            Console.WriteLine("A 7 has been rolled, stopping the rolling process");
+            return true;
+        }
         public void StartGame(int players)
         {
             //Game setup

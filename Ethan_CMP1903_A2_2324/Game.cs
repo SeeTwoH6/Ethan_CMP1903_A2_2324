@@ -1,4 +1,5 @@
-﻿using System;
+﻿//#define TEST
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
@@ -19,12 +20,12 @@ namespace Ethan_CMP1903_A2_2324
 
             //Inputs needed for option select
             int choice = 0;
-            while (choice != 5)
+            while (choice != 6)
             {
                 choice = 0;
-                while (choice < 1 || choice > 5)
+                while (choice < 1 || choice > 6)
                 {
-                    Console.WriteLine("Select Option Below: \n1) Sevens Out Game\n2) Three or More\n3) How to Play\n4) View Statistics\n5) Exit");
+                    Console.WriteLine("Select Option Below: \n1) Sevens Out Game\n2) Three or More\n3) How to Play\n4) View Statistics\n5) Run Tests\n6) Exit");
                     try
                     {
                         choice = Int32.Parse(Console.ReadLine());
@@ -79,7 +80,7 @@ namespace Ethan_CMP1903_A2_2324
                     int viewStats = 0;
                     while (viewStats < 1 || viewStats > 8)
                     {
-                        Console.WriteLine("Select Option Below: \n1) Sevens Out High Score\n2) Sevens Out Games Played\n3) Sevens Out Turns Played\n4) Three Or More Games Played\n5)Three Or More Turns Played\n6) Player 1 Wins\n7) Player 2 Wins\n8) Total Games Played");
+                        Console.WriteLine("Select Option Below: \n1) Sevens Out High Score\n2) Sevens Out Games Played\n3) Sevens Out Turns Played\n4) Three Or More Games Played\n5) Three Or More Turns Played\n6) Player 1 Wins\n7) Player 2 Wins\n8) Total Games Played");
                         try
                         {
                             viewStats = Int32.Parse(Console.ReadLine());
@@ -120,6 +121,11 @@ namespace Ethan_CMP1903_A2_2324
                     }
                 }
                 else if (choice == 5)
+                {
+                    tests.CheckGame();
+                    tests.CheckRolling7s();
+                }
+                else if (choice == 6)
                 {
                     break;
                 }
