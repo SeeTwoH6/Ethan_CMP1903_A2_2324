@@ -46,7 +46,6 @@ namespace Ethan_CMP1903_A2_2324
             scoreToTest = testThree.playerScore > testThree.oppScore ? testThree.playerScore : testThree.oppScore;
             Debug.Assert(scoreToTest > 20, "Winning score is less than 20 so an error has occurred");
             Console.WriteLine("Points totalled to an acceptable value");
-            
         }
     }
 }

@@ -84,7 +84,7 @@ namespace Ethan_CMP1903_A2_2324
                     {
                         while (choice < 1 || choice > 3)
                         {
-                            Console.WriteLine($"\nYou rolled at least two {i}'s\nDo you want to:\n1) Reroll the rest of your dice?\n2) Reroll all of your dice\n3)Proceed with point calculation\n");
+                            Console.WriteLine($"\nYou rolled at least two {i}'s\nDo you want to:\n1) Reroll the rest of your dice?\n2) Reroll all of your dice\n3) Proceed with point calculation\n");
                             if (players == 2 || (players == 1 && playerID == 0))
                             {
                                 try
