@@ -29,7 +29,7 @@ namespace Ethan_CMP1903_A2_2324
                 }
             }
         }
-        public void StartGame(int players)
+        public void StartGame(int players, bool testMode)
         {
             //Game setup
             playerScore = 0;
@@ -160,16 +160,28 @@ namespace Ethan_CMP1903_A2_2324
                     {
                         points += 3;
                         Console.WriteLine("\nYou rolled 3 of a kind!");
+                        if (testMode)
+                        {
+                            Console.WriteLine("Adding 3 points");
+                        }
                     }
                     else if (count == 4)
                     {
                         points += 6;
                         Console.WriteLine("\nYou rolled 4 of a kind!");
+                        if (testMode)
+                        {
+                            Console.WriteLine("Adding 6 points");
+                        }
                     }
                     else if (count == 5)
                     {
                         points += 12;
                         Console.WriteLine("\nYou rolled 5 of a kind!");
+                        if (testMode)
+                        {
+                            Console.WriteLine("Adding 12 points");
+                        }
                     }
 
                     if (playerID == 0)

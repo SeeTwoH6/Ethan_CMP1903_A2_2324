@@ -43,5 +43,10 @@ namespace Ethan_CMP1903_A2_2324
                 Console.WriteLine($"You rolled a {die.Roll}");
             }
         }
+
+        public int ReturnScore(int score)
+        {
+            return score;
+        }
     }
 }

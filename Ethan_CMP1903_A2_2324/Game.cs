@@ -40,7 +40,7 @@ namespace Ethan_CMP1903_A2_2324
                 int opponent = 0;
                 while ((opponent < 1 || opponent > 2) && choice < 3)
                 {
-                    Console.WriteLine("Play:\n1)Singleplayer?\n2)Two players?");
+                    Console.WriteLine("Play:\n1) Singleplayer?\n2) Two players?");
                     try
                     {
                         opponent = Int32.Parse(Console.ReadLine());
@@ -65,7 +65,7 @@ namespace Ethan_CMP1903_A2_2324
                 //Three or More game was selected
                 else if (choice == 2)
                 {
-                    threeOrMore.StartGame(opponent);
+                    threeOrMore.StartGame(opponent, false);
                     stats.Games3Played(1);
                     stats.Update3Turns(threeOrMore.turns);
                     stats.Update1Wins(threeOrMore.p1Wins);
@@ -124,6 +124,8 @@ namespace Ethan_CMP1903_A2_2324
                 {
                     tests.CheckGame();
                     tests.CheckRolling7s();
+                    tests.ScoreChecking();
+                    tests.TestTotalTo20();
                 }
                 else if (choice == 6)
                 {
