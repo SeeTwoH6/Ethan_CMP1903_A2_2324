@@ -125,10 +125,14 @@ namespace Ethan_CMP1903_A2_2324
                     Console.WriteLine("Player 1 won!");
                     p1Wins++;
                 }
-                else
+                else if (oppScore > playerScore)
                 {
                     Console.WriteLine("Player 2 won!");
                     oppWins++;
+                }
+                else
+                {
+                    Console.WriteLine("Draw!");
                 }
             }
         }
