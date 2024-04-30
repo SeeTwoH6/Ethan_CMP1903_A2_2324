@@ -9,7 +9,7 @@ namespace Ethan_CMP1903_A2_2324
          * and one method that rolls the die, returns and integer and takes no parameters.
          */
         //Property
-        public int Roll { get; protected set; } //Property definition improvement from the review process
+        public int Roll { get; protected set; }
         //Method
         private static Random roll = new Random();
 

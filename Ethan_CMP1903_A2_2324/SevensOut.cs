@@ -9,6 +9,10 @@ namespace Ethan_CMP1903_A2_2324
 {
     internal class SevensOut : DiceGames
     {
+        /// <summary>
+        /// Method to test if the game will stop if a sum of 7 is rolled
+        /// </summary>
+        /// <returns>True if loop breaks correctly</returns>
         public bool TestRoll()
         {
             int sum = 0;
@@ -40,7 +44,7 @@ namespace Ethan_CMP1903_A2_2324
             CreateDice(2, gameDice);
             var firstDice = gameDice.First();
             var secondDice = gameDice.Last();
-            for (int i = 0; i < players; i++)
+            for (int i = 0; i < players; i++) //Loop will run a number of times according to the value of the "players" parameter
             {
                 Console.WriteLine($"Player {i+1}:\n");
                 int sum = 0;
@@ -50,7 +54,7 @@ namespace Ethan_CMP1903_A2_2324
                     turns++;
                     sum = 0;
 
-                    if (i == 0 || (players == 2 && i == 1))
+                    if (i == 0 || (players == 2 && i == 1)) //If either it is P1s turn OR there are two players and its P2s turn
                     {
                         Console.WriteLine("Press any key to roll your dice");
                         var rollingDice = Console.ReadKey();
@@ -65,7 +69,7 @@ namespace Ethan_CMP1903_A2_2324
                     {
                         Console.WriteLine("You rolled a 7! Game over!");
                     }
-                    else if (firstDice.Roll == secondDice.Roll)
+                    else if (firstDice.Roll == secondDice.Roll) //Checks if the double points rule should be implemented
                     {
                         Console.WriteLine("You rolled a double!");
                         if (i == 0) //Player 1

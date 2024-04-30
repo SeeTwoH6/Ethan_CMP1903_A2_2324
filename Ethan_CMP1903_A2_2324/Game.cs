@@ -71,10 +71,12 @@ namespace Ethan_CMP1903_A2_2324
                     stats.Update1Wins(threeOrMore.p1Wins);
                     stats.Update2Wins(threeOrMore.oppWins);
                 }
+                //Prints out rules to the player
                 else if (choice == 3)
                 {
                     Console.WriteLine("Sevens Out\r\n2 x dice\r\nRules:\r\n\tRoll the two dice, noting the total rolled each time.\r\n\tIf it is a 7 - stop.\r\n\tIf it is any other number - add it to your total.\r\n\t\tIf it is a double - add double the total to your score (3,3 would add 12 to your total)\r\n\r\nThree or More\r\n5 x dice\r\nRules:\r\n\tRoll all 5 dice hoping for a 3-of-a-kind or better.\r\n\tIf 2-of-a-kind is rolled, player may choose to rethrow all, or the remaining dice.\r\n\t3-of-a-kind: 3 points\r\n\t4-of-a-kind: 6 points\r\n\t5-of-a-kind: 12 points\r\n\tFirst to a total of 20.\r\n");
                 }
+                //View Statistics
                 else if (choice == 4)
                 {
                     int viewStats = 0;
@@ -120,6 +122,7 @@ namespace Ethan_CMP1903_A2_2324
 
                     }
                 }
+                //Runs tests
                 else if (choice == 5)
                 {
                     tests.CheckGame();
@@ -127,8 +130,11 @@ namespace Ethan_CMP1903_A2_2324
                     tests.ScoreChecking();
                     tests.TestTotalTo20();
                 }
+                //Exits program
                 else if (choice == 6)
                 {
+                    Console.WriteLine("Thanks for playing!");
+                    Console.ReadKey();
                     break;
                 }
             }
