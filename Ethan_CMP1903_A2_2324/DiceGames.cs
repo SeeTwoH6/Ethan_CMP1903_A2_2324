@@ -35,13 +35,14 @@ namespace Ethan_CMP1903_A2_2324
         /// Rerolls each die in the passed in dice list
         /// </summary>
         /// <param name="list"></param>
-        public virtual void Reroll(List<Die> list)
+        public virtual int Reroll(List<Die> list)
         {
             foreach (Die die in list)
             {
                 die.RollDice();
                 Console.WriteLine($"You rolled a {die.Roll}");
             }
+            return 0;
         }
 
         public int ReturnScore(int score)

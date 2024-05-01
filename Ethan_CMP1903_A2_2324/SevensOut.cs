@@ -35,6 +35,17 @@ namespace Ethan_CMP1903_A2_2324
             Console.WriteLine("A 7 has been rolled, stopping the rolling process");
             return true;
         }
+        public override int Reroll(List<Die> list)
+        {
+            int total = 0;
+            foreach (Die die in list)
+            {
+                int turnRoll = die.RollDice();
+                Console.WriteLine($"You rolled a {die.Roll}");
+                total += turnRoll;
+            }
+            return total;
+        }
         public void StartGame(int players)
         {
             //Game setup
@@ -52,19 +63,14 @@ namespace Ethan_CMP1903_A2_2324
                 while (sum != 7)
                 {
                     turns++;
-                    sum = 0;
-
                     if (i == 0 || (players == 2 && i == 1)) //If either it is P1s turn OR there are two players and its P2s turn
                     {
                         Console.WriteLine("Press any key to roll your dice");
                         var rollingDice = Console.ReadKey();
                     }
-                    foreach (Die die in gameDice)
-                    {
-                        int turnRoll = die.RollDice();
-                        Console.WriteLine($"You rolled a {die.Roll}");
-                        sum += turnRoll;
-                    }
+
+                    sum = Reroll(gameDice);
+
                     if (sum == 7)
                     {
                         Console.WriteLine("You rolled a 7! Game over!");
@@ -119,10 +125,14 @@ namespace Ethan_CMP1903_A2_2324
                     Console.WriteLine("Player 1 won!");
                     p1Wins++;
                 }
-                else
+                else if (oppScore > playerScore)
                 {
                     Console.WriteLine("Player 2 won!");
                     oppWins++;
+                }
+                else
+                {
+                    Console.WriteLine("Draw!");
                 }
             }
         }

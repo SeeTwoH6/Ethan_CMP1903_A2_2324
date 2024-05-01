@@ -1,5 +1,4 @@
-﻿//#define TEST
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
@@ -133,7 +132,7 @@ namespace Ethan_CMP1903_A2_2324
                 //Exits program
                 else if (choice == 6)
                 {
-                    Console.WriteLine("Thanks for playing!");
+                    Console.WriteLine("Thanks for playing!\nPress any key to close");
                     Console.ReadKey();
                     break;
                 }
